@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Credential Insert</title>
+    <style>
+        .button1{
+        height:75px;
+        width:250px;
+        background-color:#007ACC;
+        margin-left:auto;
+        margin-right:auto;
+        text-align:center;
+        border-radius:12px;
+        box-shadow: 4px 4px 4px black;
+        }
+        div{
+        height:80px;
+        width:250px;
+        margin-left:auto;
+        margin-right:auto;
+        }
+    </style>
+</head>
+<body style="background-color:#3E3E42;">
+<h1 style="text-align:center;"><font style="background-color:aqua;">Employee Credential Insert</font></h1>
+<br>
+<div>
+    <form style="background-color:#ffffff;" action="#" th:action="@{/HRM/api/Employee/add}" th:object="${user}" method="post" >
+        <br>
+        <label><font style="text-align:center;" >Employee name</font></label><br>
+        <input type="text" th:field="*{username}"><br><br>
+        <br><label><font style="text-align:center;" >Password</font></label><br>
+        <input type="text" th:field="*{password}"><br><br>
+        <button type="submit">Add</button>
+    </form>
+</div>
+</body>
+</html>

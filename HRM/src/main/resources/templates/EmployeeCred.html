@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Credential</title>
+    <style>
+        .centered_button{
+        display:flex;
+        justify-content: space-between;
+        }
+        .button1{
+        height:40px;
+        width:150px;
+        background-color:#007ACC;
+        margin-left:auto;
+        margin-right:auto;
+        text-align:center;
+        border-radius:12px;
+        box-shadow: 4px 4px 4px black;
+        }
+    </style>
+</head>
+<body style="background-color:#3E3E42;">
+<h1 style="text-align:center;"><font style="background-color:aqua;">Employee Credentials</font></h1>
+<br>
+<div align="center">
+    <table border="1" cellpadding="10" style="background-color:#F3F300">
+        <thead>
+        <th>Employee Name</th>
+        <th>Password</th>
+        </thead>
+        <tr th:each ="user:${info}">
+            <td th:text="${user.username}"/>
+            <td th:text="${user.password}"/>
+            <td>
+                <a th:href="@{/HRM/api/EmployeeCred/Update/{id}(id=${user.username})}"><button class="button1" style="float:left">Update</button></a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{/HRM/api/EmployeeCred/Delete/{id}(id=${user.username})}"><button class="button1" style="float:right">Delete</button></a>
+            </td>
+        </tr>
+    </table>
+</div>
+<br>
+<div class="centered_button">
+    <a href="InsertCred"><button class="button1" style="float:left">insert</button></a>
+</div>
+</body>
+</html>
